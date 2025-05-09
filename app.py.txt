@@ -1,0 +1,63 @@
+import streamlit as st
+import tempfile
+import cv2
+from ultralytics import YOLO
+import os
+from datetime import datetime
+
+# Load YOLOv8 model
+model = YOLO("toy_model_results/yolov8s_toy11/weights/best.pt")
+
+st.title("YOLOv8 Object Detection App")
+st.sidebar.title("Select Mode")
+
+mode = st.sidebar.radio("Choose input source", ["Upload Video", "Use Webcam"])
+
+def infer_on_video(video_path):
+    cap = cv2.VideoCapture(video_path)
+    stframe = st.empty()
+
+    while cap.isOpened():
+        ret, frame = cap.read()
+        if not ret:
+            break
+
+        results = model(frame)
+        annotated_frame = results[0].plot()
+
+        stframe.image(annotated_frame, channels="BGR", use_column_width=True)
+
+    cap.release()
+
+def infer_on_webcam():
+    cap = cv2.VideoCapture(0)
+    stframe = st.empty()
+
+    stop = st.button("Stop Webcam")
+
+    while cap.isOpened():
+        ret, frame = cap.read()
+        if not ret or stop:
+            break
+
+        results = model(frame)
+        annotated_frame = results[0].plot()
+        stframe.image(annotated_frame, channels="BGR", use_column_width=True)
+
+    cap.release()
+
+# --- Video Upload Mode ---
+if mode == "Upload Video":
+    uploaded_file = st.file_uploader("Upload a video", type=["mp4", "mov", "avi"])
+    if uploaded_file is not None:
+        tfile = tempfile.NamedTemporaryFile(delete=False)
+        tfile.write(uploaded_file.read())
+        st.success("Video uploaded successfully!")
+        if st.button("Run Inference"):
+            infer_on_video(tfile.name)
+        os.unlink(tfile.name)
+
+# --- Webcam Mode ---
+elif mode == "Use Webcam":
+    if st.button("Start Webcam Inference"):
+        infer_on_webcam()
