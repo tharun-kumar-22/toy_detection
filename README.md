@@ -6,7 +6,7 @@ In this project, we developed an object detection system to identify and classif
 
 ## Main Folders
 
-### 🔹 Task-1-YOLO-Important/
+### 🔹 YOLO-Important/
 Contains our full pipeline using **YOLOv8**:
 - Dataset preparation  
 - Model training  
@@ -18,7 +18,17 @@ Contains our full pipeline using **YOLOv8**:
 
 ---
 
-### 🔹 Task-1-FasterRCNN/
+### 🔹 EfficientDet/
+
+Contains an alternative implementation using EfficientDet-D0: 
+
+- Slowest out of the other two 
+- Needs high computational power
+- Trained on same toy dataset
+
+---
+
+### 🔹 Faster_RCNN/
 Contains an alternative implementation using **Faster R-CNN**:
 - Slower but still accurate  
 - Used mainly for comparison  
@@ -43,5 +53,5 @@ Both folders include:
 - Output videos showing detection results
 
 ---
-
+Please find the some missing files from drive: https://drive.google.com/drive/folders/1Q8_b4_KsHYgJrv2Q0JhCyMA4kt4UuFWj?usp=sharing
 This setup demonstrates a full evaluation pipeline, helping choose the right model for real-world deployment.
