@@ -1,6 +1,8 @@
-# Assignment 1: Object Detection for a Toy Manufacturer
+ Object Detection for a Toy Manufacturer using YOLO
 
 This project trains a **YOLO-based object detection model** to identify toy products on a simulated conveyor belt. It is part of a PoC (Proof of Concept) for automating the sorting process in a toy manufacturing line.
+
+you may find missing folders here: https://drive.google.com/drive/folders/1oWnaZq98cUe4d13vEptk78xjcL8wtxaa?usp=sharing
 
 ---
 
