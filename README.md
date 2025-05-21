@@ -1,6 +1,6 @@
 # Object Detection for a Toy Manufacturer
 
-In this project, we developed an object detection system to identify and classify toy products on a conveyor belt for a manufacturer. We tested **two different models** to compare performance:
+In this project, we developed an object detection system to identify and classify toy products on a conveyor belt for a manufacturer. We tested **three different models** to compare performance:
 
 ---
 
