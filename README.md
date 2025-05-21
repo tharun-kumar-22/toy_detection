@@ -1,36 +1,47 @@
-# Toy Detection using Object Detection
+# Task 1: Object Detection for a Toy Manufacturer
 
-This project focuses on developing a robust object detection model for a toy manufacturer. The objective is to detect various toy products on a conveyor belt under different orientations, except for the underside.
+In this project, we developed an object detection system to identify and classify toy products on a conveyor belt for a manufacturer. We tested **two different models** to compare performance:
 
-## Overview
+---
 
-- **Goal**: Train an object detection model that reliably identifies toy objects in real-time.
-- **Challenge**: Toys appear in multiple orientations (excluding the underside), requiring the model to generalize well.
-- **Application**: Supports automation of sorting lines in industrial settings.
+## Main Folders
 
-## Dataset
+### 🔹 Task-1-YOLO-Important/
+Contains our full pipeline using **YOLOv8**:
+- Dataset preparation  
+- Model training  
+- Inference (on images and videos)  
+- Final output video and tracking logs  
 
-- Custom dataset created via self-acquisition.
-- Annotated using [Label Studio](https://labelstud.io/) with bounding boxes.
-- Split into training and test sets for effective evaluation.
+**Recommended Folder**:  
+> YOLO performed the best in terms of speed and accuracy. Please check this folder for our final results and inference demos.
 
-## Model
+---
 
-- **Architecture**: YOLOv8, EfficienDet, FasterRCNN
-- **Framework**: PyTorch
-- **Training**: Conducted on annotated dataset with appropriate data augmentation.
-- **Evaluation**: Accuracy assessed on a small test set and through real-time video demonstration.
+### 🔹 Task-1-FasterRCNN/
+Contains an alternative implementation using **Faster R-CNN**:
+- Slower but still accurate  
+- Used mainly for comparison  
+- Same toy dataset used
 
-## Tools Used
+---
 
-- Python
-- YOLOv5
-- OpenCV
-- Label Studio
-- PyTorch
+## Why YOLO?
 
-## Demo
+- **Faster** inference time (real-time capable)
+- **Better accuracy** on small toy objects
+- Easier deployment and integration with apps
 
-A video demonstration shows real-time detection of toys on a conveyor-like setup, with bounding boxes and class predictions.
+---
 
+## Deliverables in Each Folder
 
+Both folders include:
+- Jupyter Notebooks for training & testing
+- Scripts for running detection
+- Pretrained weights
+- Output videos showing detection results
+
+---
+
+This setup demonstrates a full evaluation pipeline, helping choose the right model for real-world deployment.
