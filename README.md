@@ -46,7 +46,7 @@ Contains an alternative implementation using **Faster R-CNN**:
 
 ## Deliverables in Each Folder
 
-Both folders include:
+All three folders include:
 - Jupyter Notebooks for training & testing
 - Scripts for running detection
 - Pretrained weights
